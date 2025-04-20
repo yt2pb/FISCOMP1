@@ -1,0 +1,214 @@
+#questão 1
+#a
+
+def fat(x):
+    if x==0:
+        return 1
+    else:
+        return x*fat(x-1)
+    
+    
+n = int(input("digite um número para obter seu fatorial:\n"))
+print(fat(n))
+
+
+#b
+i = float(input("Digite um número para obter seu fatorial:\n"))
+print(fat(i))
+
+#O programa retorna 'inf' porque o resultado é acima de 10^308 o qual seria o max de um float, ocorre um overflow. 
+#O int apresenta um resultado pois em python é possível armazenar uma maior quantidade de números inteiros.
+
+#questão 2
+#a
+from math import sqrt
+def funq(a,b,c):
+    d=pow(b,2)-(4*a*c)
+    
+    x1=((-b)+sqrt(d))/(2*a)
+    x2=((-b)-sqrt(d))/(2*a)
+    return x1,x2
+r=float(input("digite o valor de a:\n"))
+w=float(input("digite o valor de b:\n"))
+e=float(input("digite o valor de c:\n"))
+funq(r,w,e)
+
+
+#b
+from math import sqrt
+def funq2(a,b,c):
+    d=pow(b,2)-(4*a*c)
+    x1=(2*c)/((-b)-sqrt(d))
+    x2=(2*c)/((-b)+sqrt(d))
+    return x1,x2
+z=float(input("digite o valor de a:\n"))
+q=float(input("digite o valor de b:\n"))
+p=float(input("digite o valor de c:\n"))
+funq2(z,q,p)
+
+#c
+from math import sqrt
+def funq2(a,b,c):
+    d=pow(b,2)-(4*a*c)
+    if abs(-b+d)>abs(-b-d):
+        x1=((-b)+sqrt(d))/(2*a)
+        x2=(2*c)/((-b)+sqrt(d))
+    else:
+        x1=(2*c)/((-b)-sqrt(d))
+        x2=((-b)-sqrt(d))/(2*a)
+        
+    return x1,x2
+z=float(input("digite o valor de a:\n"))
+q=float(input("digite o valor de b:\n"))
+p=float(input("digite o valor de c:\n"))
+funq2(z,q,p)
+
+
+#questão 3
+#a
+def f(x):
+  return  x*(x-1)
+d=10**(-2)
+x=1
+derivada=((f(x+d)-f(x)))/d
+print(derivada)
+
+#b1
+def f(x):
+  return  x*(x-1)
+d=10**(-4)
+x=1
+derivada=((f(x+d)-f(x)))/d
+pr#b2
+def f(x):
+  return  x*(x-1)
+d=10**(-6)
+x=1
+derivada=((f(x+d)-f(x)))/d
+print(derivada)int(derivada)
+
+#b3
+def f(x):
+  return  x*(x-1)
+d=10**(-8)
+x=1
+derivada=((f(x+d)-f(x)))/d
+print(derivada)
+
+
+#b4
+def f(x):
+  return  x*(x-1)
+d=10**(-10)
+x=1
+derivada=((f(x+d)-f(x)))/d
+print(derivada)
+
+
+#b5
+def f(x):
+  return  x*(x-1)
+d=10**(-12)
+x=1
+derivada=((f(x+d)-f(x)))/d
+print(derivada)
+
+
+#b6
+def f(x):
+  return  x*(x-1)
+d=10**(-14)
+x=1
+derivada=((f(x+d)-f(x)))/d
+print(derivada)
+
+
+#questão 4
+#a
+from numpy import loadtxt
+from pylab import plot,show
+N=100
+a=0.0
+b=100.0
+h=(b-a)/N
+x=[]
+s=0
+d=loadtxt(r"C:\Users\yapes\OneDrive\Desktop\UFRN\Fisica Computacional\velocities.txt")
+v=d[:,1]
+x.append(0)
+t=d[:,0]
+for k in range(1,N):
+    s+= v[k]
+    x.append(s)
+    
+s+=(0.5*v[0])+(0.5*v[100])
+x.append(h*s)
+print(h*s)
+#b
+plot(t,x)
+plot(t,v)
+show()
+
+
+#questão 5
+#a
+def f(x):
+    return (x**4)-(2*x)+1
+N= 10
+a=0.0
+b=2.0
+h=(b-a)/N
+s=f(a)+f(b)
+k=1
+e=0
+y=0
+
+for k in range (1,N,2):
+    e+=f(a+(k*h))
+for k in range (2,N,2):
+    y+=f(a+(k*h))
+print((h/3)*(s+(2*y)+(4*e)))
+
+
+#b
+erro=(4.4-4.0043)/4.0043
+print(erro)
+
+
+#c1
+
+def f(x):
+    return (x**4)-(2*x)+1
+N= 100
+a=0.0
+b=2.0
+h=(b-a)/N
+s=f(a)+f(b)
+k=1
+e=0
+y=0
+
+for k in range (1,N,2):
+    e+=f(a+(k*h))
+for k in range (2,N,2):
+    y+=f(a+(k*h))
+print((h/3)*(s+(2*y)+(4*e)))
+
+
+#c2
+def f(x):
+    return (x**4)-(2*x)+1
+N= 1000
+a=0.0
+b=2.0
+h=(b-a)/N
+s=f(a)+f(b)
+k=1
+e=0
+y=0
+
+for k in range (1,N,2):
+    e+=f(a+(k*h))
+for k in range (2,N,2):
+    y+=f(a+(k*h))
+print((h/3)*(s+(2*y)+(4*e)))
